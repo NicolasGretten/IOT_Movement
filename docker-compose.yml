@@ -3,8 +3,7 @@ services:
     nginx:
         container_name: movement-nginx
         build:
-            context: ./docker
-            dockerfile: /nginx/dockerfile
+            dockerfile: ./docker/nginx/dockerfile
         image: 'iot-nginx'
         restart: unless-stopped
         tty: true
@@ -15,8 +14,7 @@ services:
     php-fpm:
         container_name: movement-php
         build:
-            context: ./docker
-            dockerfile: /php/dockerfile
+            dockerfile: ./docker/php/dockerfile
         volumes:
             - './:/var/www'
         image: 'iot-api:latest'
